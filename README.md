@@ -2,6 +2,16 @@
 
 Just the initial result of doing the getting started guide with react-native app.
 
+# IOS setup
+
+Development team is required for running the app on a real device. We use my private one (Viktor Dahl) for this.
+To run on ios after cloning, run this in the root directory:
+
+- npm install
+- cd ios && pod install && cd ..
+
+These two commands must also be run for each new package added.
+
 ## Pre requirements
 
 - Homebrew
