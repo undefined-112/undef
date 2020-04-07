@@ -1,15 +1,33 @@
 import React from 'react';
 import {View, StyleSheet, Button} from 'react-native';
 
+const chats = [
+  {
+    name: 'Viktor',
+    number: 1,
+  },
+  {name: 'Jens', number: 2},
+  {name: 'Joacim', number: 3},
+];
+
 export const ChatList = ({navigation}) => {
-  const pressHandler = () => {
-    navigation.navigate('ChatView');
+  const pressHandler = chat => {
+    console.log(chat);
+    navigation.navigate('ChatView', {name: 'Jens', number: 2});
   };
 
   return (
     <View style={styles.view}>
-      <Button title="Chat 1" style={styles.chatButton} onPress={pressHandler} />
-      <Button title="Chat 2" style={styles.chatButton} onPress={pressHandler} />
+      {chats.map(chat => (
+        <Button
+          key={chat.number}
+          title={`Chat ${chat.number} with ${chat.name}`}
+          style={styles.chatButton}
+          onPress={() => {
+            pressHandler(chat);
+          }}
+        />
+      ))}
     </View>
   );
 };

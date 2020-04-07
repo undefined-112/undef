@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 
-export const ChatView = ({number}) => {
+export const ChatView = ({route, navigation}) => {
+  // const {name, number} = route.params.chat;
+  console.log(route);
   return (
     <View style={styles.view}>
-      <Text>Chat {number} </Text>
+      <Text>{/* Chat {number} with {name} */}</Text>
     </View>
   );
 };
