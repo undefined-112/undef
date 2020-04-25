@@ -1,17 +1,16 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { View, Text } from 'react-native';
 
-import ChatNavigator from './routes/chatStack.js';
+import ChatList from './components/ChatList/ChatList'
 
-const signedIn = true; // Temp variable
-const showRegistrationForm = true;
+
 
 export const App = () => {
-  if (signedIn) {
-    return <ChatNavigator />;
-  } else if (showRegistrationForm) {
-    return <SignUpForm />;
-  } else {
-    return <SignInForm />;
-  }
+  return (
+    <View>
+      <Text>Hej</Text>
+      <ChatList />
+    </View>
+  );
 };
+
