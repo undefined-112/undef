@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
@@ -8,6 +8,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    height: 800,
   },
   input: {
     borderLeftWidth: 2,
@@ -16,7 +17,7 @@ const styles = {
   },
 };
 
-const url = 'https://undefined-backend.herokuapp.com/api/login';
+const url =  'http://127.0.0.1:8080/api/login' // 'https://undefined-backend.herokuapp.com/api/login';
 
 const Login = ({}) => {
   const [state, setState] = useState({ username: '', password: '' });
@@ -28,41 +29,18 @@ const Login = ({}) => {
     setState(modifiedState);
   };
 
-  useEffect(() => {
-    async function fetch() {
-      const username = 'erik';
-      const password = 'cpl123';
-
-      try {
-        const res = await axios.post(url, {
-          username: username,
-          password: password,
-        });
-        console.log(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetch();
-
-    return () => {
-      console.log('termiante');
-    };
-  });
 
   const doLogin = async () => {
     const { username, password } = state;
 
     try {
       setLoading(true);
-      await axios.post(url, { username, password });
+      const res = (await axios.post(url, { username, password })).data;
+      console.log('res: ', res)
     } catch (error) {
-      console.error(error);
+      console.log(error);
       setError(error);
     }
-
-    setLoading(false);
 
     setLoading(false);
   };
@@ -81,6 +59,7 @@ const Login = ({}) => {
             placeholder="Username"
             style={styles.input}
             autoFocus={true}
+            autoCapitalize="none"
             keyboardAppearance="dark"
             value={state.username}
             editable
@@ -92,7 +71,7 @@ const Login = ({}) => {
             type="password"
             placeholder="Password"
             keyboardAppearance="light"
-            style={styles.input}
+            autoCapitalize="none"
             value={state.password}
             editable
             maxLength={16}
