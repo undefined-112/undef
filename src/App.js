@@ -1,12 +1,16 @@
 import React from 'react';
-import { TokenProvider } from './context/token';
+
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { TokenProvider } from './context/token';
+import Login from './components/Login/Login';
+
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Login />
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
