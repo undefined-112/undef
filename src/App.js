@@ -4,7 +4,6 @@ import { View, Text } from 'react-native';
 import ChatList from './components/ChatList/ChatList'
 
 
-
 export const App = () => {
   return (
     <View>
