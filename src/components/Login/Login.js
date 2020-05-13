@@ -67,7 +67,6 @@ const Login = ({}) => {
             keyboardAppearance="light"
             secureTextEntry={true}
             autoCapitalize="none"
-            secureTextEntry={true}
             value={state.password}
             editable
             maxLength={16}
