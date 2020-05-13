@@ -34,8 +34,7 @@ const Login = ({}) => {
 
     try {
       setLoading(true);
-      const res = (await axios.post(url, { username, password })).data;
-      console.log('res: ', res);
+      await axios.post(url, { username, password });
     } catch (error) {
       console.log(error);
       setError(error);
@@ -68,6 +67,7 @@ const Login = ({}) => {
             keyboardAppearance="light"
             secureTextEntry={true}
             autoCapitalize="none"
+            secureTextEntry={true}
             value={state.password}
             editable
             maxLength={16}
