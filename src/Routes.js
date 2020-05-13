@@ -1,14 +1,31 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-import { ChatList } from './views/ChatList';
-import { ChatView } from './views/ChatView';
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
+
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
 
 const screens = {
-  ChatList: {
-    screen: ChatList,
+  HomeScreen: {
+    screen: HomeScreen,
   },
-  ChatView: {
-    screen: ChatView,
+  DetailsScreen: {
+    screen: DetailsScreen,
   },
 };
 
